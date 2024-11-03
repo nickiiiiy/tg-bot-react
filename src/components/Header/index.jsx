@@ -4,7 +4,7 @@ import "./index.css";
 import { useTelegram } from "../hooks/useTelegaram";
 
 const Header = () => {
-  const { tg, user, onClose } = useTelegram;
+  const { tg, user, onClose } = useTelegram();
 
   // Получаем hash из initData
   const getHash = () => {
