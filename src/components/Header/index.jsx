@@ -1,13 +1,10 @@
 import React from "react";
 import Button from "../Button";
 import "./index.css";
+import { useTelegram } from "../hooks/useTelegaram";
 
 const Header = () => {
-  const tg = window.Telegram.WebApp;
-
-  const onClose = () => {
-    tg.close();
-  };
+  const { tg, user, onClose } = useTelegram;
 
   // Получаем hash из initData
   const getHash = () => {
@@ -24,8 +21,8 @@ const Header = () => {
   return (
     <div className="header">
       <Button onClick={onClose}>Закрыть</Button>
-      <span className={"username"}>{tg.initDataUnsafe?.user?.username}</span>
-      <span className={"username"}>{tg.initDataUnsafe?.user?.first_name}</span>
+      <span className={"username"}>{user?.username}</span>
+      {/* <span className={"username"}>{tg.initDataUnsafe?.user?.first_name}</span>
       <span className={"username"}>{tg.initDataUnsafe?.user?.last_name}</span>
       <span className={"username"}>{tg.initDataUnsafe?.user?.id}</span>
       <span className={"username"}>
@@ -33,7 +30,7 @@ const Header = () => {
       </span>
       <span className={"username"}>{tg.initDataUnsafe?.user?.is_premium}</span>
       <span className={"username"}>{tg.initDataUnsafe?.user?.is_bot}</span>
-      <span className={"username"}>Hash: {hash}</span>
+      <span className={"username"}>Hash: {hash}</span> */}
     </div>
   );
 };
