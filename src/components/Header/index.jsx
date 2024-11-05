@@ -16,21 +16,30 @@ const Header = () => {
     return null;
   };
 
+  const getAuth = () => {
+    const initData = tg.initData;
+    if (initData) {
+      const params = new URLSearchParams(initData);
+      return params.get("auth_date");
+    }
+    return null;
+  };
+
+  const auth_date = getAuth();
   const hash = getHash();
 
   return (
     <div className="header">
       <Button onClick={onClose}>Закрыть</Button>
       <span className={"username"}>{user?.username}</span>
-      {/* <span className={"username"}>{tg.initDataUnsafe?.user?.first_name}</span>
-      <span className={"username"}>{tg.initDataUnsafe?.user?.last_name}</span>
-      <span className={"username"}>{tg.initDataUnsafe?.user?.id}</span>
-      <span className={"username"}>
-        {tg.initDataUnsafe?.user?.language_code}
-      </span>
-      <span className={"username"}>{tg.initDataUnsafe?.user?.is_premium}</span>
-      <span className={"username"}>{tg.initDataUnsafe?.user?.is_bot}</span>
-      <span className={"username"}>Hash: {hash}</span> */}
+      <span className={"username"}>{user?.first_name}</span>
+      <span className={"username"}>{user?.last_name}</span>
+      <span className={"username"}>{user?.id}</span>
+      <span className={"username"}>{user?.language_code}</span>
+      <span className={"username"}>{user?.is_premium}</span>
+      <span className={"username"}>{user?.is_bot}</span>
+      <span className={"username"}>Hash: {hash}</span>
+      <span className={"username"}> auth_date: {auth_date}</span>
     </div>
   );
 };

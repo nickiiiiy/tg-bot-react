@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import "./App.css";
 import Header from "./components/Header";
 import { useTelegram } from "./components/hooks/useTelegaram";
 import { Route, Routes } from "react-router-dom";
 import ProductList from "./components/ProductList";
 import Form from "./components/Form";
+import "./App.css";
 
 function App() {
   const { onClose, tg, onToggleButton } = useTelegram();
