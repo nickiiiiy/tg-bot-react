@@ -31,13 +31,13 @@ const Header = () => {
   return (
     <div className="header">
       <Button onClick={onClose}>Закрыть</Button>
-      {user?.photo_url && (
+      {/* {user?.photo_url && (
         <img
           src={`data:;base64,${user?.photo_url}`}
           alt="User"
           className="user-photo"
         />
-      )}
+      )} */}
 
       <span className={"username"}>{user?.username}</span>
       <span className={"username"}>{user?.first_name}</span>
