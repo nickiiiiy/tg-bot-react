@@ -31,6 +31,10 @@ const Header = () => {
   return (
     <div className="header">
       <Button onClick={onClose}>Закрыть</Button>
+      {user?.photo_url && (
+        <img src={user.photo_url} alt="User" className="user-photo" />
+      )}
+
       <span className={"username"}>{user?.username}</span>
       <span className={"username"}>{user?.first_name}</span>
       <span className={"username"}>{user?.last_name}</span>
@@ -40,6 +44,7 @@ const Header = () => {
       <span className={"username"}>{user?.is_bot}</span>
       <span className={"username"}>Hash: {hash}</span>
       <span className={"username"}> auth_date: {auth_date}</span>
+      <img src={user?.photo_url} alt="" />
     </div>
   );
 };
