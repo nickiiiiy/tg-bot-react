@@ -32,7 +32,11 @@ const Header = () => {
     <div className="header">
       <Button onClick={onClose}>Закрыть</Button>
       {user?.photo_url && (
-        <img src={user.photo_url} alt="User" className="user-photo" />
+        <img
+          src={`data:;base64,${user?.photo_url}`}
+          alt="User"
+          className="user-photo"
+        />
       )}
 
       <span className={"username"}>{user?.username}</span>
