@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useTelegram } from "../hooks/useTelegaram";
+import { useTelegram } from "../hooks/useTelegram";
 import "./index.css";
 
 const Form = () => {
@@ -13,7 +13,25 @@ const Form = () => {
     tg.MainButton.setParams({
       text: "Отправить данные",
     });
-  }, []);
+
+    // Показываем BackButton
+    tg.BackButton.show();
+
+    // Добавляем обработчик нажатия BackButton
+    const handleBackButton = () => {
+      console.log("BackButton clicked");
+      // Например, можно сделать навигацию назад
+      window.history.back();
+    };
+
+    tg.BackButton.onClick(handleBackButton);
+
+    return () => {
+      // Убираем обработчик и скрываем BackButton при размонтировании
+      tg.BackButton.offClick(handleBackButton);
+      tg.BackButton.hide();
+    };
+  }, [tg]);
 
   useEffect(() => {
     if (!country || !street || !subject) {
