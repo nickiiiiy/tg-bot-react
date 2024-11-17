@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 import { useTelegram } from "../hooks/useTelegaram";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [country, setCountry] = useState("");
   const [street, setStreet] = useState("");
   const [subject, setSubject] = useState("");
-
+  const navigate = useNavigate();
   const { tg } = useTelegram();
 
   useEffect(() => {
@@ -20,8 +21,7 @@ const Form = () => {
     // Добавляем обработчик нажатия BackButton
     const handleBackButton = () => {
       console.log("BackButton clicked");
-      // Например, можно сделать навигацию назад
-      window.history.back();
+      navigate("/");
     };
 
     tg.BackButton.onClick(handleBackButton);
